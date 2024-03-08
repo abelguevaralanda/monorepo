@@ -20,6 +20,5 @@ jobs:
         with:
           app-name: "nest-app"
           working-directory: "./Back-End"
-
       - name: Build
         run: npm run build
