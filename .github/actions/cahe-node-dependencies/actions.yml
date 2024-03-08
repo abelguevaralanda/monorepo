@@ -1,0 +1,27 @@
+name: "Get & Cache NPM Dependencies"
+description: "Get & Cache Dependencies(via npm) for faster builds"
+
+inputs:
+  app-name:
+    description: "The app name"
+    required: false
+    default: "app"
+  working-directory:
+    description: "The working directory"
+    required: false
+    default: "."
+runs:
+  using: "composite"
+  steps:
+    - name: "Cache Dependencies"
+      uses: actions/cache@v4
+      id: get-node-dependencies
+      with:
+        path: "${{ inputs.working-directory }}/node_modules"
+        key: deps-${{ inputs.app-name}}-inputs-node-modules-${{ hashFiles(fortmat('{0}/package-lock.json', inputs.working-directory)) }}
+
+    - name: Instal Dependencies
+      if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      run: cd ${{ inputs.working-directory }} && npm ci
+
+      shell: bash

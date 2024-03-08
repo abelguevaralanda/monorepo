@@ -16,15 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: "Cache Dependencies"
-        uses: "actions/cache@v4"
-        id: cache-front-node-modules
+      - name: Manage NPM Dependencies
+        uses: ./.github/actions/cache-node-dependencies
         with:
-          path: "./Front-End/node_modules"
-          key: front-node-modules-${{ hashFiles('**/package-lock.json') }}
+          app-name: "react-app"
+          working-directory: "./Front-End"
 
-      - name: Install dependencies
-        if: steps.cache-front-node-modules.outputs.cache-hit != 'true'
-        run: npm ci
       - name: Build
         run: npm run build
