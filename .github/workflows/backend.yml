@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: action/checkout@v4
       - name: Manage NPM Dependencies
-        uses: ./.github/actions/cache-node-dependencies
+        uses: ./.github/action/cache-node-dependencies
         with:
           app-name: "nest-app"
           working-directory: "./Back-End"

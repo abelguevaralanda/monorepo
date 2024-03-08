@@ -14,11 +14,11 @@ runs:
   using: "composite"
   steps:
     - name: "Cache Dependencies"
-      uses: actions/cache@v4
+      uses: action/cache@v4
       id: get-node-dependencies
       with:
         path: "${{ inputs.working-directory }}/node_modules"
-        key: deps-${{ inputs.app-name}}-inputs-node-modules-${{ hashFiles(fortmat('{0}/package-lock.json', inputs.working-directory)) }}
+        key: deps-${{ inputs.app-name}}-inputs-node-modules-${{ hashFiles(format('{0}/package-lock.json', inputs.working-directory)) }}
 
     - name: Install Dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
