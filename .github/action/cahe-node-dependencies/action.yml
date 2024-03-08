@@ -14,7 +14,7 @@ runs:
   using: "composite"
   steps:
     - name: "Cache Dependencies"
-      uses: action/cache@v4
+      uses: actions/cache@v4
       id: get-node-dependencies
       with:
         path: "${{ inputs.working-directory }}/node_modules"
