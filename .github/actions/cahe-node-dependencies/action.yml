@@ -20,7 +20,7 @@ runs:
         path: "${{ inputs.working-directory }}/node_modules"
         key: deps-${{ inputs.app-name}}-inputs-node-modules-${{ hashFiles(fortmat('{0}/package-lock.json', inputs.working-directory)) }}
 
-    - name: Instal Dependencies
+    - name: Install Dependencies
       if: steps.cache-node-modules.outputs.cache-hit != 'true'
       run: cd ${{ inputs.working-directory }} && npm ci
 
