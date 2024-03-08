@@ -7,6 +7,9 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
+    coverage: {
+      reporter: "lcovonly",
+      exclude: ["**/main.tsx"],}
   },
   plugins: [react()],
 
