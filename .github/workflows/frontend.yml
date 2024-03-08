@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Manage NPM Dependencies
-        uses: ./.github/actions/cache-node-dependencies
+        uses: .github/actions/cache-node-dependencies
         with:
           app-name: "react-app"
           working-directory: "./Front-End"
