@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Lint
-        run: nmp run ci:lint
+        run: npm run ci:lint
 
       - name: Test
         run: npm run ci:test
