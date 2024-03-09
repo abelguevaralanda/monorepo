@@ -1,5 +1,6 @@
 name: Frontend
 
+
 on:
   push:
     branches: [main]
@@ -11,6 +12,7 @@ jobs:
     defaults:
       run:
         working-directory: ./Front-End
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
